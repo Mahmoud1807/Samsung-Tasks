@@ -1,0 +1,80 @@
+FinGuard Analytics - Task 35 / educational MLflow lifecycle
+Python=3.12.14 | MLflow=2.22.2 | scikit-learn=1.6.1 | pandas=2.2.3
+Tracking/registry URI: sqlite:///mlflow_finguard.db
+Experiment: credit-default-risk (ID=1)
+Separate artifact root: file:///workspace/scratch/aa93f546fc9e/output/task35/mlartifacts
+Dataset source: https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset
+Dataset file: /workspace/scratch/aa93f546fc9e/output/task35/data/UCI_Credit_Card.csv
+Ingested dimensions: 30000 rows x 25 columns
+Schema:
+ID                              int64
+LIMIT_BAL                     float64
+SEX                             int64
+EDUCATION                       int64
+MARRIAGE                        int64
+AGE                             int64
+PAY_0                           int64
+PAY_2                           int64
+PAY_3                           int64
+PAY_4                           int64
+PAY_5                           int64
+PAY_6                           int64
+BILL_AMT1                     float64
+BILL_AMT2                     float64
+BILL_AMT3                     float64
+BILL_AMT4                     float64
+BILL_AMT5                     float64
+BILL_AMT6                     float64
+PAY_AMT1                      float64
+PAY_AMT2                      float64
+PAY_AMT3                      float64
+PAY_AMT4                      float64
+PAY_AMT5                      float64
+PAY_AMT6                      float64
+default.payment.next.month      int64
+Feature null count: 0
+Class balance (1 = default):
+                            count  percent
+default.payment.next.month                
+0                           23364    77.88
+1                            6636    22.12
+Train/test shapes: (24000, 23) / (6000, 23)
+Predictors: LIMIT_BAL, SEX, EDUCATION, MARRIAGE, AGE, PAY_0, PAY_2, PAY_3, PAY_4, PAY_5, PAY_6, BILL_AMT1, BILL_AMT2, BILL_AMT3, BILL_AMT4, BILL_AMT5, BILL_AMT6, PAY_AMT1, PAY_AMT2, PAY_AMT3, PAY_AMT4, PAY_AMT5, PAY_AMT6
+Note: this dataset has PAY_0 and PAY_2..PAY_6; there is no PAY_1 column.
+
+BASELINE Run ID: 56da99454bf9404bafeeec49fe47e28f
+{
+  "accuracy": 0.8076666666666666,
+  "precision": 0.6876355748373102,
+  "recall": 0.23888470233609646,
+  "f1_score": 0.354586129753915,
+  "roc_auc": 0.7074631140330437
+}
+
+PARENT Run ID: e4043305ef564e788287d45add699cef
+CHILD C=0.001  Run ID=820e0e99a40a4795973ec50e51784ca0 F1=0.288115 ROC-AUC=0.703263 accuracy=0.802333
+CHILD C=0.01   Run ID=b273283a104948b6b8655a60184b663b F1=0.347973 ROC-AUC=0.706750 accuracy=0.807000
+CHILD C=0.1    Run ID=c16a3a7f33134efd86010e4a7a4f26dc F1=0.354586 ROC-AUC=0.707463 accuracy=0.807667
+CHILD C=1.0    Run ID=97d38de9c6184bdb8bf1eec89fb678fb F1=0.355307 ROC-AUC=0.707636 accuracy=0.807667
+CHILD C=10.0   Run ID=6218d42af8024c3eb21b9c2aab7f8e9e F1=0.355109 ROC-AUC=0.707658 accuracy=0.807500
+Parent best_f1_score: 0.355307
+
+Selection filter: tags.mlflow.parentRunId = 'e4043305ef564e788287d45add699cef' AND tags.pipeline_phase = 'Trial' AND attributes.status = 'FINISHED'
+Champion chosen by ROC-AUC: Run ID=6218d42af8024c3eb21b9c2aab7f8e9e, C=10.0, ROC-AUC=0.707658
+REGISTERED: CreditDefaultRiskClassifier, version=2, alias=@champion
+Governance tags: {"validation_status": "approved", "fair_lending_audit": "passed", "governance_scope": "simulated_coursework_only", "real_regulatory_approval": "not_assessed", "real_fair_lending_audit": "not_performed", "deployment_authorized": "false"}
+
+Alias inference: models:/CreditDefaultRiskClassifier@champion
+ sample_index  ground_truth  predicted  correct
+         6907             0          0     True
+        24575             0          0     True
+        26766             0          0     True
+         2156             1          0    False
+         3179             0          0     True
+Verified: alias version matches registration; alias predictions match logged pipeline.
+LIMITATION: assignment selects on the test set; scores are selection-biased. Use validation/CV plus an untouched holdout before any real deployment.
+GOVERNANCE: approved/passed are simulated labels only; no actual compliance or fair-lending audit has been performed.
+
+Results saved under: /workspace/scratch/aa93f546fc9e/output/task35/results
+UI command (run from the project folder):
+python -m mlflow ui --backend-store-uri sqlite:///mlflow_finguard.db --port 5000

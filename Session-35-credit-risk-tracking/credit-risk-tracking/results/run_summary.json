@@ -1,0 +1,30 @@
+{
+  "dataset_shape": [
+    30000,
+    25
+  ],
+  "dataset_sha256": "a0f0ab49d6326671d6cd83be5c88dcf18007025fe9a53ecd699119c871176ca1",
+  "baseline_run_id": "56da99454bf9404bafeeec49fe47e28f",
+  "baseline_metrics": {
+    "accuracy": 0.8076666666666666,
+    "precision": 0.6876355748373102,
+    "recall": 0.23888470233609646,
+    "f1_score": 0.354586129753915,
+    "roc_auc": 0.7074631140330437
+  },
+  "parent_run_id": "e4043305ef564e788287d45add699cef",
+  "best_f1_score": 0.3553072625698324,
+  "champion_run_id": "6218d42af8024c3eb21b9c2aab7f8e9e",
+  "champion_C": "10.0",
+  "registered_model": "CreditDefaultRiskClassifier",
+  "version": "2",
+  "alias_uri": "models:/CreditDefaultRiskClassifier@champion",
+  "governance_tags": {
+    "validation_status": "approved",
+    "fair_lending_audit": "passed",
+    "governance_scope": "simulated_coursework_only",
+    "real_regulatory_approval": "not_assessed",
+    "real_fair_lending_audit": "not_performed",
+    "deployment_authorized": "false"
+  }
+}

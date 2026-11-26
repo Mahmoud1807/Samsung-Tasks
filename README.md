@@ -1,6 +1,6 @@
 # Samsung Innovation Campus · AI coursework
 
-My session assignments from Samsung Innovation Campus, from Python and probability through machine learning and automation. Each entry describes one assignment. Python notebooks are linked where available. The workforce dashboard in session 10 was reconstructed from my session 9 model.
+My session assignments from Samsung Innovation Campus, from Python and probability through machine learning and automation. Each entry opens the exercise, its solution and a short description. The workforce dashboard in session 10 was reconstructed from my session 9 model.
 
 | Session | Assignment |
 | --- | --- |

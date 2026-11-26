@@ -1,0 +1,6 @@
+sample_index,ground_truth,predicted,correct
+6907,0,0,True
+24575,0,0,True
+26766,0,0,True
+2156,1,0,False
+3179,0,0,True
